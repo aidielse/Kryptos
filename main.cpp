@@ -4,7 +4,7 @@ int main() {
 
 	char command;
 	string main_menu = "MAIN MENU\n1: base64 options\nh: Print this menu\nq: exit\n\n";
-	string base64_options = "BASE64 OPTIONS\n1: Convert Hex to Base 64 \nh: Print this menu\nb: Back to main menu\n\n";
+	string base64_options = "BASE64 OPTIONS\n1: Convert Hex to Base 64 \n2: Convert Base 64 to Hex\nh: Print this menu\nb: Back to main menu\n\n";
 
 	cout << main_menu;
 	cout << "Kryptos>";
@@ -33,10 +33,16 @@ int main() {
 					switch(command) {
 						{case '1':
 							string input;
-							cout << "hex string: ";
+							cout << "Hex string: ";
 							cin >> input;
-							cout << "\noutput: " << hextob64(input);
+							cout << "\noutput: " << hextob64(input) << "\n";
 							break;
+						}
+						{case '2':
+							string input;
+							cout << "Base 64 string: ";
+							cin >> input;
+							cout << "\noutput: " << b64tohex(input) << "\n";
 						}
 						{case 'h':
 							cout <<base64_options;

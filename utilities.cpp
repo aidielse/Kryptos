@@ -1,5 +1,68 @@
 #include "utilities.h"
 
+//converts a 4 bit string to it's hex equivalent
+char bintohex(string &input) {
+
+	if (input == "0000")return '0';
+		
+	else if(input=="0001") return '1';
+
+	else if(input=="0010") return '2';
+
+	else if(input=="0011") return '3';
+
+	else if(input=="0100") return '4';
+
+	else if(input=="0101") return '5';
+
+	else if(input=="0110") return '6';
+
+	else if(input=="0111") return '7';
+
+	else if(input=="1000") return '8';
+
+	else if(input=="1001") return '9';
+
+	else if(input=="1010") return 'a';
+
+	else if(input=="1011") return 'b';
+
+	else if(input=="1100") return 'c';
+
+	else if(input=="1101") return 'd';
+
+	else if(input=="1110") return 'e';
+
+	else return 'f';
+	
+}
+
+//converts an int to byte form represented as a string
+string dectobin(int foo) {
+
+string bar = "";
+
+while(foo != 0) {
+
+		if(foo % 2 == 1) {
+			bar += "1";
+		}
+		else {
+			bar += "0";
+		}
+		foo = foo/2;
+	}
+	//this while loop fills in zeros and make's sure the int is represented as a byte
+	while(bar.size() < 8) {
+
+		bar += "0";
+	}
+	//reverse the string to be returned, since it's in reverse order.
+	reverse(bar.begin(),bar.end());
+
+	return bar;
+}
+
 //takes in a hexadecimal character and converts it to it's binary representation
 string hextobin(char &input) {
 	
@@ -38,6 +101,7 @@ string hextobin(char &input) {
 		case 'f' :
 			return "1111";
 	}
+	return NULL;
 }
 
 //takes in any number of bits represented as a string, returns it's decimal equivalent as an int 
