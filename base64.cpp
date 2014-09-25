@@ -1,5 +1,31 @@
 #include "base64.h"
 
+string dectobinsix(int foo) {
+
+string bar = "";
+
+while(foo != 0) {
+
+		if(foo % 2 == 1) {
+			bar += "1";
+		}
+		else {
+			bar += "0";
+		}
+		foo = foo/2;
+	}
+	//this while loop fills in zeros and make's sure the int is represented as a byte
+	while(bar.size() < 6) {
+
+		bar += "0";
+	}
+	//reverse the string to be returned, since it's in reverse order.
+	reverse(bar.begin(),bar.end());
+
+	return bar;
+}
+
+
 //converts a single base 64 character to it's int equivalent
 int b64todec(char &c) {
 
@@ -178,9 +204,10 @@ string hextob64(string &input) {
 string b64tohex(string &input) {
 	string bin_input="";
 	for(int i =0; i < input.size(); i++) {
-		bin_input += dectobin(b64todec(input[i]));
+		bin_input += dectobinsix(b64todec(input[i]));
 	}
 	string output = "";
+	cout << "binary input: " << bin_input << "\n";
 	for(int i = 0; i < bin_input.size(); i = i + 4) {
 		string foo = "";
 		foo += bin_input[i];
