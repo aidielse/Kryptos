@@ -5,6 +5,7 @@ using namespace std;
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+char bintoc(string &input);
 char bintohex(string &input);
 string dectobin(int foo);
 string hextobin(char &input);

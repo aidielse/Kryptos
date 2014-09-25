@@ -1,5 +1,18 @@
 #include "utilities.h"
 
+//this function converts a 8 character string of '0''s and '1''s to the ascii equivalent
+char bintoc(string &input) {
+
+	int sum = 0;
+
+	for(int i = 0; i < 8; i++) {
+
+		if(input[i] == '1') {
+			sum += pow(2,7-i);
+		}
+	}
+	return (char)sum;
+}
 //converts a 4 bit string to it's hex equivalent
 char bintohex(string &input) {
 

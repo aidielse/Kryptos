@@ -4,9 +4,9 @@
 int main() {
 
 	char command;
-	string main_menu = "MAIN MENU\n1: base64 options\n2: Xor options\nh: Print this menu\nq: exit\n\n";
-	string base64_options = "BASE64 OPTIONS\n1: Convert Hex to Base 64 \n2: Convert Base 64 to Hex\nh: Print this menu\nb: Back to main menu\n\n";
-	string Xor_options = "XOR OPTIONS\n1: Fixed Xor of two hex strings (equal length)\nh: Print this menu\nb: Back to main menu\n\n";
+	string main_menu = "\nMAIN MENU\n1: Base64 options\n2: Xor options\nh: Print this menu\nq: Quit\n\n";
+	string base64_options = "\nBASE64 OPTIONS\n1: Convert Hex to Base 64 \n2: Convert Base 64 to Hex\nh: Print this menu\nb: Back to main menu\n\n";
+	string Xor_options = "\nXOR OPTIONS\n1: Fixed Xor of two hex strings (equal length)\nh: Print this menu\nb: Back to main menu\n\n";
 	cout << main_menu;
 	cout << "Kryptos>";
 
