@@ -1,17 +1,17 @@
 #include "base64.h"
+#include "xor.h"
 
 int main() {
 
 	char command;
-	string main_menu = "MAIN MENU\n1: base64 options\nh: Print this menu\nq: exit\n\n";
+	string main_menu = "MAIN MENU\n1: base64 options\n2: Xor options\nh: Print this menu\nq: exit\n\n";
 	string base64_options = "BASE64 OPTIONS\n1: Convert Hex to Base 64 \n2: Convert Base 64 to Hex\nh: Print this menu\nb: Back to main menu\n\n";
-
+	string Xor_options = "XOR OPTIONS\n1: Fixed Xor of two hex strings (equal length)\nh: Print this menu\nb: Back to main menu\n\n";
 	cout << main_menu;
 	cout << "Kryptos>";
 
 	while(1) {		
 
-		//cout << "command: " << command << "\n";
 		command = cin.get();
 
 		if(command == '\n') {
@@ -46,6 +46,41 @@ int main() {
 						}
 						{case 'h':
 							cout <<base64_options;
+							break;
+						}
+						{case 'b':
+							cout << main_menu;
+							loop=false;
+							break;
+						}
+					}
+				}
+				break;
+			}
+			{case '2':
+				cout << Xor_options;
+				bool loop = true;
+				while(loop) {
+					command = cin.get();
+
+					if(command == '\n') {
+						cout << "Kryptos/Xor>";
+					}
+
+					switch(command) {
+						{case '1':
+							string inputone;
+							string inputtwo;
+							cout << "First hex string: ";
+							cin >> inputone;
+							cout << "Second hex string: ";
+							cin >> inputtwo;
+
+							cout << "\noutput: " << fixedXor(inputone,inputtwo) << "\n";
+							break;
+						}
+						{case 'h':
+							cout << Xor_options;
 							break;
 						}
 						{case 'b':
