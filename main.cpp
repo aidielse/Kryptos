@@ -7,7 +7,7 @@ int main() {
 	char command;
 	string main_menu = "\nMAIN MENU\n1: Base64 options\n2: Xor options\nh: Print this menu\nq: Quit\n\n";
 	string base64_options = "\nBASE64 OPTIONS\n1: Convert Hex to Base 64 \n2: Convert Base 64 to Hex\nh: Print this menu\nb: Back to main menu\n\n";
-	string Xor_options = "\nXOR OPTIONS\n1: Fixed Xor of two hex strings (equal length)\n2: Break single byte Xor\nh: Print this menu\nb: Back to main menu\n\n";
+	string Xor_options = "\nXOR OPTIONS\n1: Fixed Xor of two hex strings (equal length)\n2: Break single byte Xor\n3: Detect and break single byte Xor\nh: Print this menu\nb: Back to main menu\n\n";
 	cout << main_menu;
 	cout << "Kryptos>";
 
@@ -59,7 +59,6 @@ int main() {
 							loop=false;
 							break;
 						}
-
 					}
 				}
 				break;
@@ -90,9 +89,13 @@ int main() {
 							string input;
 							cout << "Hex to break: ";
 							cin >> input;
-							string temp = sByteXor(input);
-							scoring(temp);
+							sByteXor(input);
+							scoring();
 						break;
+						}
+						{case '3':
+							detectXor();
+							scoring();
 						}
 						{case 'h':
 							cout << Xor_options;
@@ -108,7 +111,6 @@ int main() {
 							loop=false;
 							break;
 						}
-
 					}
 				}
 				break;

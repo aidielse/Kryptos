@@ -77,7 +77,9 @@ vector <string> X_OR(string &input) {
 	return outputs;
 }
 //prints all possible XOR results
-string sByteXor(string &input) {
+int sByteXor(string &input) {
+
+	ofstream output("plaintexts.txt");
 	string temp = "";
 	//convert input argument from hex to it's binary equivalent, store in string temp
 	for(int i = 0; i < input.size(); i++) {
@@ -109,12 +111,74 @@ string sByteXor(string &input) {
 	ascii_results.push_back(bar);
 	}
 	//print all ascii_results
-	string output = "";
 	string bar = "";
 	for(int i = 0; i < ascii_results.size(); i++) {
 		bar = ascii_results[i] + "\n";
-		output += bar;
+		output << bar;
 	}
+	output.close();
+	return 0;
+}
 
-	return output;
+int detectXor() {
+	string inputfile;
+	//get name of input file with hex encoded single byte XOR encrypted ciphertexts.
+	cout << "Enter the name of an existing text file in the current directory: ";
+	cin >> inputfile;
+
+	ifstream input(inputfile);
+	//open output file
+	ofstream output("plaintexts.txt");
+
+	string bar = "";
+
+	while(input.good()) {
+		string temp = "";
+		string baz = "";
+		//get line (ciphertext) from input, store in baz 
+		getline(input,baz);
+
+		//compute all possible plaintexts, write store them in ascii_results vector
+		if(input.good()) {
+			//convert hex to binary, store in temp
+			for(int i = 0; i < baz.size(); i++) {
+				temp += hextobin(baz[i]);
+			}
+			//cout << "temp  = " << temp << "\n";
+			//perform xor, all possible xor results are stored in the vector
+			vector <string> xor_results = X_OR(temp);
+
+			vector <string> ascii_results;
+			//convert every xor result from binary to the corresponding ascii characters
+			for(int i = 0; i < xor_results.size(); i++) {
+				string bar = "";
+				for(int j = 0; j < xor_results[i].size(); j = j + 8) {
+
+					string foo = "";
+					foo += xor_results[i][j];
+					foo += xor_results[i][j+1];
+					foo += xor_results[i][j+2];
+					foo += xor_results[i][j+3];
+					foo += xor_results[i][j+4];
+					foo += xor_results[i][j+5];
+					foo += xor_results[i][j+6];
+					foo += xor_results[i][j+7];
+
+					bar += bintoc(foo);
+				}
+				//store ascii characters in ascii_results vector
+				ascii_results.push_back(bar);
+			}
+			//print all ascii_results
+			for(int i = 0; i < ascii_results.size(); i++) {
+				bar = ascii_results[i] + "\n";
+				output << bar;
+			}
+		}
+	}
+	//close input and output files
+	input.close();
+	output.close();
+
+	return 0;
 }

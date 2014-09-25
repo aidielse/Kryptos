@@ -1,5 +1,6 @@
 #include "utilities.h"
 #include <vector>
+#include <fstream>
 using namespace std;
 
 #ifndef X_OR_H
@@ -8,5 +9,6 @@ using namespace std;
 string X_OR_byte(string &a, string &b);
 string fixedXor(string &a,string &b);
 vector <string> X_OR(string &input);
-string sByteXor(string &input);
+int sByteXor(string &input);
+int detectXor();
 #endif

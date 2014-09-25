@@ -1,7 +1,9 @@
 #include "scoring.h"
 
-int scoring(string &input) {
+int scoring() {
 	// get input file containing potential plaintexts
+	//open input file for reading
+	ifstream input("plaintexts.txt");
 	//top 100 most frequent words in English
 	ifstream topWords("topHundredWordsEnglish.txt");
 
@@ -23,15 +25,18 @@ int scoring(string &input) {
 	}
 	//vector to hold user inputs
 	vector <string> inputs;
-	istringstream iss(input);
+
 	//get each potential plaintext, put into vector inputs
-	for(int j = 0; j < input.size(); j++) {
+	while(input.good()) {
 
 		string foo = "";
-		getline(iss,foo);
-		inputs.push_back(foo);
-		
+		getline(input,foo);
+		if(input.good()) {
+			inputs.push_back(foo);
+		}
 	}
+	//close ifstream
+	input.close();
 	//capitalize everything that is capitalize-able in the user's inputs, makes string search possible
 	for(i = 0; i < inputs.size(); i++) {
 		for(int j = 0; j < inputs[i].size(); j++) {
@@ -54,6 +59,7 @@ int scoring(string &input) {
 		}
 	}
 	// the most potential plaintext with the highest index is probably our correct plaintext,
+
 	int temp = 0;
 	//find the max index, store in temp
 	for(i= 0; i < inputs.size(); i++) {
