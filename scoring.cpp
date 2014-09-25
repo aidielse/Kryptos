@@ -54,7 +54,6 @@ int scoring(string &input) {
 		}
 	}
 	// the most potential plaintext with the highest index is probably our correct plaintext,
-
 	int temp = 0;
 	//find the max index, store in temp
 	for(i= 0; i < inputs.size(); i++) {

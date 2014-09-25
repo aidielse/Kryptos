@@ -8,4 +8,5 @@ using namespace std;
 string X_OR_byte(string &a, string &b);
 string fixedXor(string &a,string &b);
 vector <string> X_OR(string &input);
+string sByteXor(string &input);
 #endif

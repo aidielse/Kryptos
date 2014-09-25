@@ -1,12 +1,13 @@
 #include "base64.h"
 #include "xor.h"
+#include "scoring.h"
 
 int main() {
 
 	char command;
 	string main_menu = "\nMAIN MENU\n1: Base64 options\n2: Xor options\nh: Print this menu\nq: Quit\n\n";
 	string base64_options = "\nBASE64 OPTIONS\n1: Convert Hex to Base 64 \n2: Convert Base 64 to Hex\nh: Print this menu\nb: Back to main menu\n\n";
-	string Xor_options = "\nXOR OPTIONS\n1: Fixed Xor of two hex strings (equal length)\nh: Print this menu\nb: Back to main menu\n\n";
+	string Xor_options = "\nXOR OPTIONS\n1: Fixed Xor of two hex strings (equal length)\n2: Break single byte Xor\nh: Print this menu\nb: Back to main menu\n\n";
 	cout << main_menu;
 	cout << "Kryptos>";
 
@@ -53,6 +54,12 @@ int main() {
 							loop=false;
 							break;
 						}
+						{case 'q':
+							cout << main_menu;
+							loop=false;
+							break;
+						}
+
 					}
 				}
 				break;
@@ -79,6 +86,14 @@ int main() {
 							cout << "\noutput: " << fixedXor(inputone,inputtwo) << "\n";
 							break;
 						}
+						{case '2':
+							string input;
+							cout << "Hex to break: ";
+							cin >> input;
+							string temp = sByteXor(input);
+							scoring(temp);
+						break;
+						}
 						{case 'h':
 							cout << Xor_options;
 							break;
@@ -88,6 +103,12 @@ int main() {
 							loop=false;
 							break;
 						}
+						{case 'q':
+							cout << main_menu;
+							loop=false;
+							break;
+						}
+
 					}
 				}
 				break;
