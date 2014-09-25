@@ -3,10 +3,7 @@
 int main() {
 
 	char command;
-	cout << "MAIN MENU\n";
-	cout << "1: base64 options\n";
-	cout << "h: Print this menu\n";
-	cout << "q: exit\n\n";
+	string main_menu = "MAIN MENU\n1: base64 options\nh: Print this menu\nq: exit\n\n";
 	cout << "Kryptos>";
 
 	while(1) {		
@@ -49,10 +46,7 @@ int main() {
 							break;
 						}
 						{case 'b':
-							cout << "MAIN MENU\n";
-							cout << "1: base64 options\n";
-							cout << "h: Print this menu\n";
-							cout << "q: exit\n\n";
+							cout << main_menu;
 							loop=false;
 							break;
 						}
@@ -61,10 +55,7 @@ int main() {
 				break;
 			}
 			{case 'h':
-				cout << "MAIN MENU\n";
-				cout << "1: base64 options\n";
-				cout << "h: Print this menu\n";
-				cout << "q: exit\n\n";
+				cout << main_menu;
 				break;
 			}
 			{case 'q':
