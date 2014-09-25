@@ -4,6 +4,9 @@ int main() {
 
 	char command;
 	string main_menu = "MAIN MENU\n1: base64 options\nh: Print this menu\nq: exit\n\n";
+	string base64_options = "BASE64 OPTIONS\n1: Convert Hex to Base 64 \nh: Print this menu\nb: Back to main menu\n\n";
+
+	cout << main_menu;
 	cout << "Kryptos>";
 
 	while(1) {		
@@ -18,10 +21,7 @@ int main() {
 		switch (command) {
 
 			{case '1' :
-				cout << "BASE64 OPTIONS\n";
-				cout << "1: Convert Hex to Base 64 \n";
-				cout << "h: Print this menu\n";
-				cout << "b: Back to main menu\n\n";
+				cout << base64_options;
 				bool loop = true;
 				while(loop) {
 					command = cin.get();
@@ -39,10 +39,7 @@ int main() {
 							break;
 						}
 						{case 'h':
-							cout << "BASE64 OPTIONS\n";
-							cout << "1: Convert Hex to Base 64 \n";
-							cout << "h: Print this menu\n";
-							cout << "b: Back to main menu\n\n";
+							cout <<base64_options;
 							break;
 						}
 						{case 'b':
