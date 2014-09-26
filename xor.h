@@ -11,4 +11,6 @@ string fixedXor(string &a,string &b);
 vector <string> X_OR(string &input);
 int sByteXor(string &input);
 int detectXor();
+int repeating_Xor(string &key);
+int break_Rkey_Xor();
 #endif
